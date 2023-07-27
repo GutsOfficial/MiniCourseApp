@@ -1,0 +1,19 @@
+@model CourseJoin
+
+<h1> Kurs Kaydı Ekle</h1>   
+<form asp-controller="Join" asp-action="Create" method="post">
+<div class="mb-3">
+    <label asp-for="StudentId" class="form-label">Öğrenci Adı</label>
+   <select asp-for="StudentId" asp-items="ViewBag.Students" class="form-control">
+    <option value="">Seçiniz</option>
+   </select>
+</div>
+<div class="mb-3">
+    <label asp-for="CourseId" class="form-label">Kurs Adı</label>
+    <select asp-for="CourseId" asp-items="ViewBag.Courses" class="form-control">
+        <option value="">Seçiniz</option>
+    </select>
+</div>
+<button class="btn btn-secondary" type="submit">Kaydet</button>
+
+</form>

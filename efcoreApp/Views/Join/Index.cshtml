@@ -1,0 +1,28 @@
+@model IEnumerable<CourseJoin>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Öğrenici Ad</td>
+                <td>Öğrenici Soy Ad</td>
+                <td>Kurs Adı</td>
+            </tr>
+        </thead>
+        <tbody>
+           
+                 @foreach(var item in Model){
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem=>item.JoinId)</td>
+                    <td>@Html.DisplayFor(modelIte => item.ogrenci.StudentName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ogrenci.StudentLastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.kurs.Title)</td>
+                    <td>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@item.StudentId" 
+                        class="btn btn-sm btn-primary">Details</a>
+                        <a asp-controller="Student" asp-action="Delete" asp-route-id="@item.StudentId"  class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                 }
+            
+        </tbody>
+    </table>

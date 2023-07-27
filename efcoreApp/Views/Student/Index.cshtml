@@ -1,0 +1,25 @@
+@model IEnumerable<Student>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Öğrenici Ad</td>
+                <td>Öğrenici Soy Ad</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+           
+                 @foreach(var item in Model){
+                    <tr>
+                    <td>@item.StudentName</td>
+                    <td>@item.StudentLastName</td>
+                    <td>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@item.StudentId" 
+                        class="btn btn-sm btn-primary">Details</a>
+                        <a asp-controller="Student" asp-action="Delete" asp-route-id="@item.StudentId"  class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                 }
+            
+        </tbody>
+    </table>
